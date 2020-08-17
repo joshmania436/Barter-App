@@ -21,7 +21,7 @@ export default class WelcomeScreen extends Component {
   userLogin = (username, password)=>{
     firebase.auth().signInWithEmailAndPassword(username, password)
     .then(()=>{
-      return Alert.alert("Successfully Login")
+      this.props.navigation.navigate('HomeScreen')
     })
     .catch((error)=> {
       var errorCode = error.code;
@@ -32,7 +32,7 @@ export default class WelcomeScreen extends Component {
 
   userSignUp = (username, password,confirmPassword) =>{
     if(password !== confirmPassword){
-        return Alert.alert("Password Error! Please enter the correct password")
+        return Alert.alert("password doesn't match\nCheck your password.")
     }else{
       firebase.auth().createUserWithEmailAndPassword(username, password)
       .then((response)=>{
@@ -71,7 +71,7 @@ export default class WelcomeScreen extends Component {
         <ScrollView style={{width:'100%'}}>
           <KeyboardAvoidingView style={{flex:1,justifyContent:'center', alignItems:'center'}}>
           <Text
-            style={{justifyContent:'center', alignSelf:'center', fontSize:30,color:'#ff5722',margin:50}}
+            style={{justifyContent:'center', alignSelf:'center', fontSize:30,color:'#ff5722',margin:50,}}
             >Registration</Text>
           <TextInput
             style={styles.formTextInput}
@@ -116,7 +116,7 @@ export default class WelcomeScreen extends Component {
           />
           <TextInput
             style={styles.formTextInput}
-            placeholder ={"Username"}
+            placeholder ={"Email-ID"}
             keyboardType ={'email-address'}
             onChangeText={(text)=>{
               this.setState({
@@ -168,7 +168,8 @@ export default class WelcomeScreen extends Component {
 
 
   render(){
-    return(<Modal>
+    return(
+      <Modal>
       <View style={styles.container}>
         <View style={{justifyContent:'center',alignItems:'center'}}>
           {
@@ -177,13 +178,13 @@ export default class WelcomeScreen extends Component {
         </View>
         <View style={styles.profileContainer}>
           <Text style={styles.title}>Barter</Text>
-          <Text style={{color:'#ff8a65'}}> A Trading App </Text>
+          <Text style={{color:'#ff8a65',fontSize:20}}> My Trading App </Text>
         </View>
         <View style={styles.buttonContainer}>
+          <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold',marginLeft:55}}>Email ID </Text>
           <View style={{alignItems:'center'}}>
             <TextInput
             style={styles.loginBox}
-            placeholder='abc@example.com'
             keyboardType ={'email-address'}
             onChangeText={(text)=>{
               this.setState({
@@ -192,10 +193,10 @@ export default class WelcomeScreen extends Component {
             }}
             />
           </View>
+          <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold',marginLeft:55}}>Password</Text>
           <View style={{alignItems:'center'}}>
             <TextInput
               style={styles.loginBox}
-              placeholder='password'
               secureTextEntry = {true}
               onChangeText={(text)=>{
                 this.setState({
@@ -217,7 +218,7 @@ export default class WelcomeScreen extends Component {
                 this.setState({"isVisible":true})
               }}
               >
-                <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>SignUp</Text>
+                <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -231,7 +232,7 @@ export default class WelcomeScreen extends Component {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#ffe0b2'
+    backgroundColor:'powderblue'
   },
   profileContainer:{
     flex:1,
@@ -239,10 +240,9 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   title :{
-    fontSize:60,
+    fontSize:100,
     fontWeight:'300',
-    // fontFamily:'AvenirNext-Heavy',
-    color : '#ff9800'
+    color : '#ff8a65'
   },
   loginBox:{
     width: 300,
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     borderRadius:25,
-    backgroundColor:"#ffff",
+    backgroundColor:"white",
     elevation:10
   },
   buttonContainer:{
@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
     marginBottom:80,
   },
   formTextInput:{
+    backgroundColor:'#ff8a65',
     width:"75%",
     height:35,
     alignSelf:'center',
@@ -287,15 +288,13 @@ const styles = StyleSheet.create({
     marginTop:20,
     padding:10
   },
-  
   registerButton:{
     width:200,
     height:40,
     alignItems:'center',
     justifyContent:'center',
-    marginTop:10
+    marginTop:30
   },
-  
   registerButtonText:{
     color:'#ff5722',
     fontSize:15,
@@ -304,9 +303,8 @@ const styles = StyleSheet.create({
   cancelButton:{
     width:200,
     height:30,
-    fontSize:9,
     justifyContent:'center',
     alignItems:'center',
-    marginTop:30,
+    marginTop:5,
   },
 })
