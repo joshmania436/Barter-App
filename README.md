@@ -6,3 +6,5 @@ share information.
 This app called the 'Barter App' helps people exchange items such as books, toys, electronic gadgets, stationery etc.
 
 Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository.
+
+Feel free to git clone my App :)
