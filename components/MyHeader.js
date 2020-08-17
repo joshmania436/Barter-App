@@ -6,7 +6,7 @@ const MyHeader = props => {
   return (
     <Header
       centerComponent={{ text: props.title, style: { color: '#9oa509', fontSize:20,fontWeight:"bold", } }}
-      backgroundColor = "#eaf8fe"
+      backgroundColor = "#ff8a65"
     />
   );
 };
