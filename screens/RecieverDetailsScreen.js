@@ -5,32 +5,45 @@ import firebase from 'firebase';
 
 import db from '../config.js';
 
-export default class RecieverDetailsScreen extends Component{
+export default class ReceiverDetailsScreen extends Component{
   constructor(props){
     super(props);
     this.state={
       userId          : firebase.auth().currentUser.email,
+      userName          :'',
       receiverId      : this.props.navigation.getParam('details')["username"],
       exchangeId       : this.props.navigation.getParam('details')["exchangeId"],
       itemName        : this.props.navigation.getParam('details')["item_name"],
       description  : this.props.navigation.getParam('details')["description"],
-      recieverName    : '',
-      recieverContact : '',
-      recieverAddress : '',
-      recieverRequestDocId : ''
+      receiverName    : '',
+      receiverContact : '',
+      receiverAddress : '',
+      receiverRequestDocId : ''
     }
   }
 
+  getUserDetails=(userId)=>{
+      db.collection("users").where('email_id','==', userId).get()
+      .then((snapshot)=>{
+        snapshot.forEach((doc) => {
+          console.log(doc.data().first_name);
+          this.setState({
+            userName  :doc.data().first_name + " " + doc.data().last_name
+          })
+        })
+      })
+    }
 
 
-getRecieverDetails(){
+getreceiverDetails(){
+  console.log("receiver ",this.state.receiverId);
   db.collection('users').where('username','==',this.state.receiverId).get()
   .then(snapshot=>{
     snapshot.forEach(doc=>{
       this.setState({
-        recieverName    : doc.data().first_name,
-        recieverContact : doc.data().mobile_number,
-        recieverAddress : doc.data().address,
+        receiverName    : doc.data().first_name,
+        receiverContact : doc.data().mobile_number,
+        receiverAddress : doc.data().address,
       })
     })
   });
@@ -38,15 +51,15 @@ getRecieverDetails(){
   db.collection('exchange_requests').where('exchangeId','==',this.state.exchangeId).get()
   .then(snapshot=>{
     snapshot.forEach(doc => {
-      this.setState({recieverRequestDocId:doc.id})
+      this.setState({receiverRequestDocId:doc.id})
    })
 })}
 
 updateBarterStatus=()=>{
   db.collection('all_Barters').add({
-    book_name           : this.state.itemName,
+    item_name           : this.state.itemName,
     exchange_id          : this.state.exchangeId,
-    requested_by        : this.state.recieverName,
+    requested_by        : this.state.receiverName,
     donor_id            : this.state.userId,
     request_status      :  "Donor Interested"
   })
@@ -54,8 +67,25 @@ updateBarterStatus=()=>{
 
 
 
+  addNotification=()=>{
+    console.log("in the function ",this.state.rec)
+    var message = this.state.userName + " has shown interest in exchanging the item"
+    db.collection("all_notifications").add({
+      "targeted_user_id"    : this.state.receiverId,
+      "donor_id"            : this.state.userId,
+      "exchangeId"          : this.state.exchangeId,
+      "item_name"           : this.state.itemName,
+      "date"                : firebase.firestore.FieldValue.serverTimestamp(),
+      "notification_status" : "unread",
+      "message"             : message
+    })
+  }
+
+
+
 componentDidMount(){
-  this.getRecieverDetails()
+  this.getreceiverDetails()
+  this.getUserDetails(this.state.userId)
 }
 
 
@@ -84,28 +114,29 @@ componentDidMount(){
         </View>
         <View style={{flex:0.3}}>
           <Card
-            title={"Reciever Information"}
+            title={"receiver Information"}
             titleStyle= {{fontSize : 20}}
             >
             <Card>
-              <Text style={{fontWeight:'bold'}}>Name: {this.state.recieverName}</Text>
+              <Text style={{fontWeight:'bold'}}>Name: {this.state.receiverName}</Text>
             </Card>
             <Card>
-              <Text style={{fontWeight:'bold'}}>Contact: {this.state.recieverContact}</Text>
+              <Text style={{fontWeight:'bold'}}>Contact: {this.state.receiverContact}</Text>
             </Card>
             <Card>
-              <Text style={{fontWeight:'bold'}}>Address: {this.state.recieverAddress}</Text>
+              <Text style={{fontWeight:'bold'}}>Address: {this.state.receiverAddress}</Text>
             </Card>
           </Card>
         </View>
         <View style={styles.buttonContainer}>
           {
-            this.state.recieverId !== this.state.userId
+            this.state.receiverId !== this.state.userId
             ?(
               <TouchableOpacity
                   style={styles.button}
                   onPress={()=>{
                     this.updateBarterStatus()
+                    this.addNotification()
                     this.props.navigation.navigate('MyBarters')
                   }}>
                 <Text>I want to Exchange</Text>

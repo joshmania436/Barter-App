@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-import {View, Text,TouchableOpacity,FlatList,StyleSheet} from 'react-native';
+import {View, Text,TouchableOpacity,ScrollView,FlatList,StyleSheet} from 'react-native';
 import {Card,Icon,ListItem} from 'react-native-elements'
 import MyHeader from '../components/MyHeader.js'
 import firebase from 'firebase';
@@ -35,7 +35,7 @@ export default class BartersScreen extends Component {
        key={i}
        title={item.item_name}
        subtitle={"Requested By : " + item.requested_by +"\nStatus : " + item.request_status}
-       leftElement={<Icon name="item" type="font-awesome" color ='#696969'/>}
+       leftElement={<Icon name="book" type="font-awesome" color ='#696969'/>}
        titleStyle={{ color: 'black', fontWeight: 'bold' }}
        rightElement={
            <TouchableOpacity style={styles.button}>
