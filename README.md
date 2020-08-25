@@ -3,7 +3,7 @@
 
 In the age of the internet, everyone is connected and it is easy to share information
 with everyone. What if we could share our physical belongings just as easily as we
-share information.
+share information. :smile: :sparkles:
 
 This app called the 'Barter App' helps people exchange items such as books, toys, electronic gadgets, stationery etc.
 When you request an item, you will have to state the reason for your request.
