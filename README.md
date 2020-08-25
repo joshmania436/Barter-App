@@ -17,6 +17,6 @@ Once I'm done with this app, I will not be publishing it on Google Play Store bu
 
 
 
- <img align ="left" width="300" height ="900" src="https://github.com/josh-web/Barter-App/blob/master/assets/Welcome%20Screen.jpg">
+
 
  <img src ="left" width ="300" height= "900" src ="https://github.com/josh-web/Barter-App/blob/master/assets/Register.jpg">
