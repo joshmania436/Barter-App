@@ -6,14 +6,14 @@ with everyone. What if we could share our physical belongings just as easily as 
 share information. :smile: :sparkles:
 
 This app called the 'Barter App' helps people exchange items such as books, toys, electronic gadgets, stationery etc.
-When you request an item, you will have to state the reason for your request.
+When you request an item, you will have to state the reason for your request. :octocat: :smile: :thumbsup:
 
-You will be allowed **Only One Request** at a time.  
+You will be allowed **Only One Request** at a time.:raised_hands:
 
-This app is currently **under progress**
+This app is currently **under progress** :alarm_clock: :computer:
 
 
-Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository.
+Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository. :bowtie: :sparkles: :sunglasses:
 
 
  <img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Welcome%20Screen.jpg" width ='200' align ='left'>
