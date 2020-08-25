@@ -8,5 +8,3 @@ This app called the 'Barter App' helps people exchange items such as books, toys
 Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository.
 
 Feel free to git clone my App :)
-
-<img src ='https://github.com/josh-web/Barter-App/blob/master/assets/ads-icon.png'>
