@@ -9,4 +9,4 @@ Once I'm done with this app, I will not be publishing it on Google Play Store bu
 
 Feel free to git clone my App :)
 
-https://github.com/josh-web/Barter-App/blob/master/assets/ads-icon.png
+<img src ='https://github.com/josh-web/Barter-App/blob/master/assets/ads-icon.png'>
