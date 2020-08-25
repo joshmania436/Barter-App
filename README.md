@@ -15,4 +15,3 @@ This app is currently **under progress**
 
 Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository.
 
-Feel free to git clone my App :)
