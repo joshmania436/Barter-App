@@ -16,4 +16,18 @@ This app is currently **under progress**
 Once I'm done with this app, I will not be publishing it on Google Play Store but instead it'll remain here in this repository.
 
 
- <img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Welcome%20Screen.jpg">
+ <img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Welcome%20Screen.jpg" width ='200' align ='left'>
+ 
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Register.jpg" width ='200' align ='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/HomeScreen.jpg" width ='200' align ='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Add%20Item%20Screen.jpg" width ='200' align='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Side%20Bar%20Navigator.jpg" width ='200' align='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Notifications%20Screen.jpg" width ='200' align='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/My%20Barter%20Screen.jpg" width ='200' align='left'>
+
+<img src ="https://github.com/josh-web/Barter-App/blob/master/assets/Setting%20Screen.jpg" width ='200' align='left'>
