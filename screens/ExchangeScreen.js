@@ -1,10 +1,10 @@
-import * as React  from 'react';
+import React, { Component } from 'react';
 import { View, StyleSheet, Text, TextInput,KeyboardAvoidingView,TouchableOpacity,Alert, ToastAndroid } from 'react-native';
 import firebase from 'firebase';
 import db from '../config';
 import MyHeader from '../components/MyHeader'
 
-export default class Exchange extends React.Component{
+export default class Exchange extends Component{
 
   constructor(){
     super()
@@ -15,19 +15,18 @@ export default class Exchange extends React.Component{
     }
   }
 
-  createUniqueId=()=>{
-    return Math.random().toString(36).substring(7);
-  }
-  
   addItem=(itemName, description)=>{
     var userName = this.state.userName
-    exchangeId = this.createUniqueId()
     db.collection("exchange_requests").add({
       "username"    : userName,
       "item_name"   : itemName,
-      "description" : description,
-      "exchangeId"  : exchangeId
+      "description" : description
      })
+     this.setState({
+       itemName : '',
+       description :''
+     })
+
      this.setState({
        itemName : '',
        description :''
@@ -44,16 +43,17 @@ export default class Exchange extends React.Component{
       );
   }
 
+
+
   render(){
     return(
       <View style={{flex:1}}>
       <MyHeader title="Add Item"/>
-
       <KeyboardAvoidingView style={{flex:1,justifyContent:'center', alignItems:'center'}}>
         <TextInput
           style={styles.formTextInput}
           placeholder ={"Item Name"}
-          maxLength ={15}
+          maxLength ={8}
           onChangeText={(text)=>{
             this.setState({
               itemName: text

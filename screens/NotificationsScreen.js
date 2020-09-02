@@ -19,7 +19,7 @@ export default class NotificationScreen extends Component{
   }
 
   getNotifications=()=>{
-    this.requestRef = db.collection("all_notifications")
+    notificationRef= db.collection("all_notifications")
     .where("notification_status", "==", "unread")
     .where("targeted_user_id",'==',this.state.userId)
     .onSnapshot((snapshot)=>{
@@ -40,7 +40,7 @@ export default class NotificationScreen extends Component{
   }
 
   componentWillUnmount(){
-    notificationRef()
+    notificationRef();
   }
 
   keyExtractor = (item, index) => index.toString()

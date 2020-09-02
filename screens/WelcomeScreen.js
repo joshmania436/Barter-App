@@ -178,7 +178,7 @@ export default class WelcomeScreen extends Component {
         </View>
         <View style={styles.profileContainer}>
           <Text style={styles.title}>Barter</Text>
-          <Text style={{color:'#ff8a65',fontSize:20}}> My Trading App </Text>
+          <Text style={{color:'#ff8a65',fontSize:20}}> A Simple Trading App </Text>
         </View>
         <View style={styles.buttonContainer}>
           <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold',marginLeft:55}}>Email ID </Text>

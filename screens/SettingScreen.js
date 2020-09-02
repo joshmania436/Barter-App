@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View,Text, KeyboardAvoidingView,TextInput,StyleSheet,ScrollView,TouchableOpacity} from 'react-native';
+import {View,Text, KeyboardAvoidingView,TextInput,StyleSheet,ScrollView,TouchableOpacity,Alert} from 'react-native';
 import MyHeader from '../components/MyHeader'
 import db from '../config'
 import firebase from 'firebase'
@@ -46,6 +46,22 @@ export default class SettingScreen extends React.Component{
       address:this.state.address,
       contact:this.state.contact,
     })
+    this.setState({
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      address:this.state.address,
+      contact:this.state.contact,
+    })
+    return Alert.alert(
+      'Profile Updated',
+      '',
+      [
+        {text: 'OK', onPress: () => {
+
+          this.props.navigation.navigate('HomeScreen')
+        }}
+      ]
+  );
 }
 
 componentDidMount(){
@@ -116,10 +132,10 @@ componentDidMount(){
                 />
                 <TouchableOpacity style={styles.button}
                   onPress={()=>{this.updateData()}}>
+                    
                   <Text> Save </Text>
                 </TouchableOpacity>
                 </View>
-
               </View>
         )
     }
@@ -142,7 +158,6 @@ const styles = StyleSheet.create({
         height:50,
         justifyContent:'center',
         alignItems:'center',
-        // alignSelf: 'center',
         borderRadius:10,
         backgroundColor:"#ff5722",
         shadowColor: "#000",
