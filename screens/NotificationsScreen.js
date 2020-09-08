@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import MyHeader from '../components/MyHeader';
 
 import db from '../config';
+import SwipeableFlatlist from '../components/SwipableFlatlist';
 
 export default class NotificationScreen extends Component{
   constructor(props) {
@@ -74,11 +75,7 @@ export default class NotificationScreen extends Component{
               </View>
             )
             :(
-              <FlatList
-                keyExtractor={this.keyExtractor}
-                data={this.state.allNotifications}
-                renderItem={this.renderItem}
-              />
+              <SwipeableFlatlist allNotifications={this.state.allNotifications}/>
             )
           }
         </View>
