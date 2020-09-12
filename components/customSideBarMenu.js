@@ -1,20 +1,16 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import {StyleSheet,View,Text, TouchableOpacity,} from "react-native";
 import { DrawerItems } from "react-navigation-drawer";
 import { Avatar } from "react-native-elements";
 import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 import firebase from "firebase";
 import db from "../config";
 import { Icon } from "react-native-elements";
+
 import { RFValue } from "react-native-responsive-fontsize";
 
-
-export default class customSideBarMenu extends Component {
+export default class CustomSideBarMenu extends Component {
   state = {
     userId: firebase.auth().currentUser.email,
     image: "#",
@@ -69,8 +65,8 @@ export default class customSideBarMenu extends Component {
   getUserProfile() {
     db.collection("users")
       .where("email_id", "==", this.state.userId)
-      .onSnapshot((snapshot) => {
-        snapshot.forEach((doc) => {
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
           this.setState({
             name: doc.data().first_name + " " + doc.data().last_name,
             docId: doc.id,
@@ -91,9 +87,10 @@ export default class customSideBarMenu extends Component {
         <View
           style={{
             flex: 0.3,
+            paddingTop:20,
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#ff8a65"
+            backgroundColor: "#ff8a65",
           }}
         >
           <Avatar

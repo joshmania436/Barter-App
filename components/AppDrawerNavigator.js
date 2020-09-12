@@ -1,22 +1,48 @@
+import * as React from 'react'
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import { AppTabNavigator } from './AppTabNavigator'
 import customSideBarMenu from './customSideBarMenu'
-import BarterScreen from '../screens/BarterScreen';
+import BartersScreen from '../screens/BarterScreen';
 import SettingScreen from '../screens/SettingScreen';
 import NotificationScreen from '../screens/NotificationsScreen';
+import {Icon} from 'react-native-elements'
 
 export const AppDrawerNavigator = createDrawerNavigator({
   Home : {
-    screen : AppTabNavigator
+    screen : AppTabNavigator,
+    navigationOptions:{
+      drawerIcon:<Icon
+      name ="home" 
+      type='font-awesome-5'
+      />
+    }
     },
   MyBarters:{
-      screen : BarterScreen,
+      screen : BartersScreen,
+      navigationOptions:{
+        drawerIcon:<Icon
+         name ='box' 
+         type='font-awesome-5'
+         />
+      }
     },
   Notifications :{
-    screen : NotificationScreen
+    screen : NotificationScreen,
+    navigationOptions:{
+      drawerIcon : <Icon
+       name="bell" 
+       type ="font-awesome" 
+       />
+    }
   },
     Settings : {
-      screen : SettingScreen
+      screen : SettingScreen,
+      navigationOptions:{
+        drawerIcon : <Icon 
+        name="cog" 
+        type ="font-awesome-5" 
+        />
+      }
     }
 },
   {
