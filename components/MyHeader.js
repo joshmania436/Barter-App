@@ -13,7 +13,7 @@ export default class MyHeader extends Component{
     }
   }
 
-getNumberOfUnreadNotifications(){
+getNumberOfUnreadNotifications=()=>{
   db.collection('all_notifications').where('notification_status','==',"unread").where('targeted_user_id','==',this.state.userId)
   .onSnapshot((snapshot)=>{
     var unreadNotifications = snapshot.docs.map((doc) => doc.data())
@@ -49,7 +49,7 @@ componentDidMount(){
   render(){
     return(
       <Header leftComponent={<Icon name='bars' type='font-awesome'  color='#ffffff'
-       onPress={() => this.props.navigation.toggleDrawer()  }/>}
+       onPress={() => this.props.navigation.toggleDrawer() }/>}
       centerComponent={{ text: this.props.title,
          style: { color: '#ffffff', 
          fontSize:20,

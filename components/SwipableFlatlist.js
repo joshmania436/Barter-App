@@ -1,17 +1,10 @@
+
 import React, { Component } from 'react';
-import {
-    Animated,
-    Dimensions,
-    StyleSheet,
-    Text,
-    TouchableHighlight,
-    View,
-} from 'react-native';
-import { ListItem, Icon } from 'react-native-elements';
-
+import {Dimensions,StyleSheet,Text, View,} from 'react-native';
+import { ListItem} from 'react-native-elements';
 import { SwipeListView } from 'react-native-swipe-list-view';
-
 import db from '../config';
+import firebase from 'firebase';
 
 
 export default class SwipeableFlatlist extends Component{
