@@ -39,7 +39,7 @@ export default class HomeScreen extends Component{
             <TouchableOpacity 
             style={styles.button}
             onPress={()=>{
-              this.props.navigation.navigate('RecieverDetailsScreen')
+              this.props.navigation.navigate('RecieverDetails',{'details':item})
             }}
             >
               <Text style={{color:'#ffff'}}>Exchange</Text>

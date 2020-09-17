@@ -259,7 +259,8 @@ getData=()=>{
           />
           <TouchableOpacity
             style={[styles.button,{marginTop:10}]}
-            onPress = {()=>{this.addItem(this.state.itemName, this.state.description)}}
+            onPress = {()=>
+              {this.addItem(this.state.itemName, this.state.description)}}
             >
             <Text style={{color:'#ffff', fontSize:18, fontWeight:'bold'}}>Add Item</Text>
           </TouchableOpacity>
